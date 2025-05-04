@@ -1,188 +1,21 @@
 <!DOCTYPE html>
 <html lang="vi">
 
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="bankinfo.js">
   <title>Form Đăng Ký</title>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: url('https://cdn.beacons.ai/user_content/BYWg8MSArHQEpgtsOC35bog76UE3/profile_thaodosi8.png?q=1744954012.0386598') no-repeat center center fixed;
-      background-size: cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 20px;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 420px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .form-container,
-    .support-info {
-      background: rgba(255, 255, 255, 0.95);
-      padding: 18px 16px;
-      border-radius: 14px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .form-container h2 {
-      text-align: center;
-      margin-bottom: 16px;
-      font-size: 1.4em;
-      color: #333;
-    }
-
-    .form-group {
-      margin-bottom: 14px;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 1em;
-      margin-bottom: 6px;
-    }
-
-    .form-group input {
-      width: 100%;
-      padding: 10px;
-      font-size: 1em;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-
-    .form-group button {
-      width: 100%;
-      padding: 12px;
-      background: #28a745;
-      border: none;
-      color: white;
-      font-size: 1.1em;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-
-    .form-group button:hover {
-      background: #218838;
-      transform: translateY(-2px);
-    }
-
-    .form-group button:active {
-      transform: scale(0.97);
-    }
-
-    #successMessage {
-      display: none;
-      position: fixed;
-      top: 20%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #d4edda;
-      color: #155724;
-      padding: 12px 18px;
-      border-radius: 10px;
-      font-size: 1em;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      z-index: 999;
-    }
-
-    .support-info {
-      text-align: center;
-      font-size: 1em;
-    }
-
-    .bank-transfer {
-      font-size: 0.95em;
-      padding: 14px;
-      background: #f8f9fa;
-      border: 1px dashed #28a745;
-      border-radius: 10px;
-    }
-
-    .copy-btn {
-      margin-top: 10px;
-      padding: 10px;
-      font-size: 0.95em;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      width: 100%;
-    }
-
-    .copy-btn:hover {
-      background-color: #0056b3;
-    }
-
-    .copy-message {
-      color: green;
-      display: none;
-      margin-top: 8px;
-      font-size: 0.9em;
-    }
-
-    .phone-number {
-      font-weight: bold;
-      color: #007bff;
-    }
-
-    .support-info a {
-      color: #28a745;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    .support-info a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      font-size: 0.95em;
-    }
-
-    @media (max-width: 480px) {
-      .form-container h2 {
-        font-size: 1.3em;
-      }
-
-      .form-group label {
-        font-size: 0.95em;
-      }
-
-      .form-group input,
-      .form-group button {
-        font-size: 1em;
-      }
-
-      .copy-btn {
-        font-size: 0.95em;
-      }
-    }
-  </style>
 </head>
 
 <body>
-
   <div class="container">
     <div id="successMessage">🎉 Gửi thông tin thành công! 🎉</div>
-
-    <!-- Form đăng ký -->
     <div class="form-container support-info">
-      <h2>Đăng Ký Thông Tin</h2>
+      <h2 class="font-bold">Đăng Ký Thông Tin</h2>
       <form id="registerForm">
         <div class="form-group">
           <label for="tiktok">Tên TikTok</label>
@@ -201,68 +34,90 @@
           <input type="text" id="address" name="address" required>
         </div>
         <div class="form-group">
-          <button type="submit">Gửi Thông Tin</button>
+          <button class="font-bold uppercase" type="submit">Gửi Thông Tin</button>
         </div>
       </form>
     </div>
 
-    <!-- Thông tin chuyển khoản -->
-    <div class="support-info bank-transfer">
-      <p><strong>Thông tin chuyển khoản:</strong></p>
-      <p>Ngân hàng: <span>MBBank</span></p>
-      <p>Chủ tài khoản: <span>TRẦN THỊ THANH THẢO</span></p>
-      <p>Số tài khoản: <span id="accountNumber">900998686</span></p>
-      <button onclick="copyBankInfo()" class="copy-btn">📋 Chuyển khoản nhanh</button>
-      <p id="copyMessage" class="copy-message">Đã sao chép thông tin chuyển khoản!</p>
+    <div
+      class="support-info bank-transfer bg-white p-4 rounded-lg shadow-md max-w-[420px] mx-auto mt-6 border border-gray-200">
+      <p class="text-lg font-bold mb-4 text-center">Thông tin chuyển khoản:</p>
+      <div id="bankInfo" class="space-y-4"></div>
     </div>
 
-    <!-- Footer -->
-    <footer class="support-info">
-      <p>📞 <a href="tel:0382586289" class="phone-number">0382.586.289</a></p>
-      <p>🎁 <a href="https://zalo.me/g/ofvlfc825" target="_blank">Tham gia nhóm VIP ThaorDosi</a></p>
+    <div id="zalo-vr" class="fixed bottom-[10px] right-0">
+      <div class="phone-vr">
+        <div class="phone-vr-circle-fill"></div>
+        <div class="phone-vr-img-circle">
+          <a target="_blank" href="https://zalo.me/0382586289">
+            <img src="https://tiemvaiminhthanh.com/wp-content/plugins/button-contact-vr/img/zalo.png" alt="Zalo">
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <footer class="support-info !p-[14px]">
+      <p>🎁 <a href="https://zalo.me/g/ofvlfc825" class="!text-black" target="_blank">Tham gia nhóm VIP ThaoDoSi</a></p>
+      <div class="flex items-center gap-[1vw] mt-[6px]">
+        <div class="w-full flex items-center justify-center">
+          <div class="gap-[6px] shadow-1 rounded-[12px] w-[70%] flex items-center justify-center p-[6px] mt-[6px]">
+            <img src="./img/zalo.png" alt="Zalo" class="cursor-pointer hover-items xl:w-[34px]">
+            <a class="text-zalo" href="https://zalo.me/0382586289">
+              0382586289
+            </a>
+          </div>
+        </div>
+      </div>
     </footer>
+
+
+
   </div>
 
-  <script>
-    const form = document.getElementById('registerForm');
-    const successMessage = document.getElementById('successMessage');
 
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const formData = new FormData(form);
-      const params = new URLSearchParams(formData).toString();
 
-      fetch('https://d48aa1.n8nhosting.app/webhook-test/26d13a57-8249-4186-b8c6-a745d25652d2', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: params,
-        mode: 'no-cors',
-      })
-        .then(() => {
-          successMessage.style.display = 'block';
-          setTimeout(() => {
-            successMessage.style.display = 'none';
-            form.reset();
-          }, 3000);
-        })
-        .catch(error => {
-          console.error('Error:', error);
-        });
-    });
-
-    function copyBankInfo() {
-      const info = `MBBank - TRẦN THỊ THANH THẢO - 900998686`;
-      navigator.clipboard.writeText(info).then(() => {
-        document.getElementById('copyMessage').style.display = 'block';
-        setTimeout(() => {
-          document.getElementById('copyMessage').style.display = 'none';
-        }, 3000);
-      });
-    }
-  </script>
 
 </body>
+<script src="bankinfo.js"></script>
+<script>
+  const form = document.getElementById('registerForm');
+  const successMessage = document.getElementById('successMessage');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const params = new URLSearchParams(formData).toString();
+
+    fetch('https://d48aa1.n8nhosting.app/webhook-test/26d13a57-8249-4186-b8c6-a745d25652d2', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: params,
+      mode: 'no-cors',
+    })
+      .then(() => {
+        successMessage.style.display = 'block';
+        setTimeout(() => {
+          successMessage.style.display = 'none';
+          form.reset();
+        }, 3000);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  });
+
+  function copyBankInfo() {
+    const info = `MBBank - TRẦN THỊ THANH THẢO - 900998686`;
+    navigator.clipboard.writeText(info).then(() => {
+      document.getElementById('copyMessage').style.display = 'block';
+      setTimeout(() => {
+        document.getElementById('copyMessage').style.display = 'none';
+      }, 3000);
+    });
+  }
+</script>
 
 </html>

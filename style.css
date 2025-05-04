@@ -1,0 +1,300 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('https://cdn.beacons.ai/user_content/BYWg8MSArHQEpgtsOC35bog76UE3/profile_thaodosi8.png?q=1744954012.0386598') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Độ mờ 50% */
+    z-index: -1; /* Đảm bảo nó nằm dưới nội dung */
+}
+
+.container {
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.form-container,
+.support-info {
+    background: rgba(255, 255, 255, 0.95);
+    width: 400px;
+    padding: 18px 32px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 480px) {
+    .form-container,
+    .support-info {
+        width: 100%; 
+        padding: 26px;  
+    }
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 16px;
+    font-size: 1.4em;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.form-group label {
+    display: flex;
+    justify-content: start;
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 2px;
+    width: 160px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.form-group button {
+    margin-top: 12px;
+    width: 100%;
+    padding: 12px;
+    background: #28a745;
+    border: none;
+    color: white;
+    font-size: 1.1em;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form-group button:hover {
+    background: #218838;
+    transform: translateY(-2px);
+}
+
+.form-group button:active {
+    transform: scale(0.97);
+}
+
+#successMessage {
+    display: none;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #d4edda;
+    color: #155724;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-size: 1em;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 999;
+}
+
+.support-info {
+    text-align: center;
+    font-size: 1em;
+}
+
+.bank-transfer {
+    font-size: 0.95em;
+    padding: 14px;
+    background: #f8f9fa;
+    border: 1px dashed #28a745;
+    border-radius: 10px;
+}
+
+.copy-btn {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 0.95em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.copy-btn:hover {
+    background-color: #0056b3;
+}
+
+.copy-message {
+    color: green;
+    display: none;
+    margin-top: 8px;
+    font-size: 0.9em;
+}
+
+.phone-number {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.support-info a {
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.support-info a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    font-size: 0.95em;
+}
+
+@media (max-width: 480px) {
+    .form-container h2 {
+        font-size: 1.3em;
+    }
+
+    .form-group label {
+        font-size: 0.95em;
+    }
+
+    .form-group input,
+    .form-group button {
+        font-size: 1em;
+    }
+
+    .copy-btn {
+        font-size: 0.95em;
+    }
+}
+
+.phone-vr {
+    position: relative;
+    visibility: visible;
+    background-color: transparent;
+    width: 90px;
+    height: 90px;
+    cursor: pointer;
+    z-index: 11;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    transition: visibility .5s;
+    right: 0;
+    bottom: 0;
+    display: block;
+}
+
+
+
+.phone-vr-circle-fill {
+    width: 65px;
+    height: 65px;
+    top: 12px;
+    left: 12px;
+    position: absolute;
+    box-shadow: 0 0 0 0 #2196F3;
+    background-color: rgba(33, 150, 243, 0.7);
+    border-radius: 50%;
+    border: 2px solid transparent;
+    -webkit-animation: phone-vr-circle-fill 2.3s infinite ease-in-out;
+    animation: phone-vr-circle-fill 2.3s infinite ease-in-out;
+    transition: all .5s;
+    -webkit-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-animuiion: zoom 1.3s infinite;
+    animation: zoom 1.3s infinite;
+}
+
+.phone-vr-img-circle {
+    background-color: #2196F3;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    top: 25px;
+    left: 25px;
+    position: absolute;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex
+;
+    justify-content: center;
+    -webkit-animation: phonering-alo-circle-img-anim 1s infinite ease-in-out;
+    animation: phone-vr-circle-fill 1s infinite ease-in-out;
+}
+
+.phone-vr-img-circle img {
+    max-height: 25px;
+    max-width: 27px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%,-50%);
+}
+
+@-webkit-keyframes phone-vr-circle-fill {
+    0% {-webkit-transform: rotate(0) scale(1) skew(1deg);  }
+    10% {-webkit-transform: rotate(-25deg) scale(1) skew(1deg);}
+    20% {-webkit-transform: rotate(25deg) scale(1) skew(1deg);}
+    30% {-webkit-transform: rotate(-25deg) scale(1) skew(1deg);}
+    40% {-webkit-transform: rotate(25deg) scale(1) skew(1deg);}
+    50% {-webkit-transform: rotate(0) scale(1) skew(1deg);}
+    100% {-webkit-transform: rotate(0) scale(1) skew(1deg);}
+  }
+  @-webkit-keyframes zoom{0%{transform:scale(.9)}70%{transform:scale(1);box-shadow:0 0 0 15px transparent}100%{transform:scale(.9);box-shadow:0 0 0 0 transparent}}@keyframes zoom{0%{transform:scale(.9)}70%{transform:scale(1);box-shadow:0 0 0 15px transparent}100%{transform:scale(.9);box-shadow:0 0 0 0 transparent}}
+
+
+
+.text-zalo {
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 400;
+}
+
+
+
+.shadow-1 {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.hover-items {
+    transition: transform 0.5s ease;
+    cursor: pointer;
+    &:active {
+        box-shadow: none;
+        transform: translateY(5px);
+    }
+    &:hover {
+        box-shadow: none;
+        transform: translateY(5px);
+    }
+}
